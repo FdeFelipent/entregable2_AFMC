@@ -1,0 +1,44 @@
+<main class="container">
+    <header class="page-header">
+        <div class="institution"><span class="institution-mark" aria-hidden="true">✳</span> UNIVERSIDAD DE LA AMAZONIA</div>
+        <p class="eyebrow">GUÍA DE ESTUDIANTE <span aria-hidden="true">·</span> MOTOR DE PLANTILLAS</p>
+        <h1>Mi guía de <span>Handlebars</span></h1>
+        <p class="intro">Desde mi experiencia como {{username}}, preparé esta guía para explicar cómo una plantilla combina HTML con datos.</p>
+    </header>
+
+    {{#if mostrarGuia}}
+        <section class="content-panel">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">LO QUE APRENDÍ</p>
+                    <h2>Los bloques esenciales</h2>
+                </div>
+                <span class="condition-badge"><span class="condition-dot"></span> if mostrarGuia: true</span>
+            </div>
+            <p class="section-description">Este contenido aparece porque <code>mostrarGuia</code> es verdadero. Cada ejemplo muestra una forma de conectar los datos con la vista.</p>
+            <div class="lesson-list">
+                {{#each lessons}}
+                    <article class="lesson-item">
+                        <span class="lesson-number">{{@index}}</span>
+                        <div class="lesson-copy">
+                            <h3>{{this.name}}</h3>
+                            <p>{{this.description}}</p>
+                        </div>
+                        <code class="lesson-example">{{this.example}}</code>
+                    </article>
+                {{/each}}
+            </div>
+        </section>
+    {{else}}
+        <section class="content-panel empty-panel">
+            <span class="empty-leaf" aria-hidden="true">✳</span>
+            <h2>La guía está en preparación</h2>
+            <p>Este mensaje aparece cuando <code>mostrarGuia</code> es falso.</p>
+        </section>
+    {{/if}}
+
+    <footer class="page-footer">
+        <span>Una práctica de clase, compartida por una estudiante.</span>
+        <a class="page-link" href="/contact">Ver plantilla de contacto <span aria-hidden="true">→</span></a>
+    </footer>
+</main>
